@@ -8,9 +8,7 @@ Multiplayer
 Use character hand gestures to eliminate enemies
 
 ## Controls
-|---|---|
 | Keys | Action |
 |---|---|
 | WASD/Arrows | Move and Strafe |
 | Left Mouse Button | Gesture (Shoot) |
-|---|---|
