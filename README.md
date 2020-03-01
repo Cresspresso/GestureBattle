@@ -1,7 +1,7 @@
 # GestureBattle
 MDS 2020 Prototype 2 FPS game
 
-Unity 2019.3.0f76
+Unity 2019.3.0f6
 
 FPS Shooter
 Multiplayer
