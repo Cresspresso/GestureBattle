@@ -282,6 +282,7 @@ MonoBehaviour:
     type: 3}
   spawnLocation: {fileID: 6414682085683294486}
   muzzleVelocity: 100
+  armAnimator: {fileID: 6554430615267632459}
 --- !u!1 &6414682085831998801
 GameObject:
   m_ObjectHideFlags: 0
