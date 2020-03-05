@@ -8,15 +8,15 @@ using UnityEngine;
 /// <author>Elijah Shadbolt</author>
 public class PlayerShoot : MonoBehaviour
 {
-	public PewGunBullet bulletPrefab;
+	public ProjectileBullet bulletPrefab;
 	public Transform spawnLocation;
-	public float muzzleVelocity = 100.0f;
 
-	public void Discharge()
+	/// <author>Elijah Shadbolt</author>
+	public ProjectileBullet Discharge()
 	{
 		var bullet = Instantiate(bulletPrefab, spawnLocation.position, spawnLocation.rotation);
-		bullet.owner = this;
-		bullet.GetComponent<Rigidbody>().velocity = spawnLocation.forward * muzzleVelocity;
+		bullet.OnSpawned(this);
+		return bullet;
 	}
 
 	private void Update()
