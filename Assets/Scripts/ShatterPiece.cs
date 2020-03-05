@@ -69,7 +69,7 @@ public class ShatterPiece : MonoBehaviour
 		var group = GetComponentInParent<ShatterGroup>();
 		if (group)
 		{
-			group.Shatter();
+			group.Shatter(collision.point);
 		}
 	}
 }

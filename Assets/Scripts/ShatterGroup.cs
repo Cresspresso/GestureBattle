@@ -23,13 +23,13 @@ public class ShatterGroup : MonoBehaviour
 	}
 
 	/// <author>Elijah Shadbolt</author>
-	public void Shatter()
+	public void Shatter(Vector3 explosionCentre)
 	{
 		try
 		{
 			foreach (var piece in pieces)
 			{
-				piece.OnShatter(explosionForce, transform.position, explosionRadius, upwardsModifier);
+				piece.OnShatter(explosionForce, explosionCentre, explosionRadius, upwardsModifier);
 			}
 		}
 		finally
@@ -37,4 +37,7 @@ public class ShatterGroup : MonoBehaviour
 			Destroy(this);
 		}
 	}
+
+	/// <author>Elijah Shadbolt</author>
+	public void ShatterFromHere() => Shatter(transform.position);
 }
