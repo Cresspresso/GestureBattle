@@ -16,19 +16,19 @@ public class PlayerShoot : MonoBehaviour
 	private float timeToIdle2 = 20.0f;
 	private float counter = 0.0f;
 
-	/// <author>Elijah Shadbolt</author>
 	public ProjectileBullet Discharge()
 	{
+		/// <author>Lorenzo</author>
 		counter = 0.0f;
 		isShooting = true;
 		armAnimator.SetTrigger("shot");
 
+		/// <author>Elijah Shadbolt</author>
 		var bullet = Instantiate(bulletPrefab, spawnLocation.position, spawnLocation.rotation);
 		bullet.OnSpawned(this);
 
-
-		isShooting = false; /// <author>Lorenzo</author>
-
+		/// <author>Lorenzo</author>
+		isShooting = false;
 
 		return bullet;
 	}
