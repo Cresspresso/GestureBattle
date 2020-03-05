@@ -281,6 +281,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 8581008719970608050, guid: d2c70f11f092e3e47a1887c128074a9f,
     type: 3}
   spawnLocation: {fileID: 6414682085683294486}
+  muzzleVelocity: 100
+  armAnimator: {fileID: 6554430615267632459}
 --- !u!1 &6414682085831998801
 GameObject:
   m_ObjectHideFlags: 0
