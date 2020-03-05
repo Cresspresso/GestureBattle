@@ -230,6 +230,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6414682085683294486}
   - component: {fileID: 6414682085683294485}
+  - component: {fileID: 5826975605671092938}
   m_Layer: 0
   m_Name: PlayerCamera
   m_TagString: Untagged
@@ -265,6 +266,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 6414682086103092644}
+--- !u!114 &5826975605671092938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6414682085683294484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ddbba6d572b81e42a68be978324e5ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 8581008719970608050, guid: d2c70f11f092e3e47a1887c128074a9f,
+    type: 3}
+  spawnLocation: {fileID: 6414682085683294486}
+  muzzleVelocity: 100
 --- !u!1 &6414682085831998801
 GameObject:
   m_ObjectHideFlags: 0
