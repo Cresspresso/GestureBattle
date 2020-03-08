@@ -35,15 +35,8 @@ public class PlayerShoot : MonoBehaviour
 
 	private void Update()
 	{
-		/// <author>Elijah</author>
-		if (Input.GetButtonDown("Fire1"))
-		{
-			Discharge();
-		}
-
  		/// <author>Lorenzo</author>
 		counter += Time.deltaTime;
-		Debug.Log(counter);
 
 		if (counter >= timeToIdle2 && isShooting == false)
 		{
