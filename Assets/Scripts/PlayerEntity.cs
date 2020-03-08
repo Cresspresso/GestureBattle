@@ -19,4 +19,7 @@ public class PlayerEntity : MonoBehaviour
 
 	private PlayerMovement m_movement;
 	public PlayerMovement movement { get { if (!m_movement) { m_movement = GetComponentInChildren<PlayerMovement>(); } return m_movement; } }
+
+	private PlayerHealth m_health;
+	public PlayerHealth health { get { if (!m_health) { m_health = GetComponentInChildren<PlayerHealth>(); } return m_health; } }
 }
