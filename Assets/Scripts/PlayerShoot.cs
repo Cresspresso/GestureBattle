@@ -8,36 +8,40 @@ using UnityEngine;
 /// <author>Elijah Shadbolt</author>
 public class PlayerShoot : MonoBehaviour
 {
-	public PewGunBullet bulletPrefab;
+	public ProjectileBullet bulletPrefab;
 	public Transform spawnLocation;
-	public float muzzleVelocity = 100.0f;
-
 	public Animator armAnimator;
 
 	private bool isShooting = false;
 	private float timeToIdle2 = 20.0f;
 	private float counter = 0.0f;
 
-	public void Discharge()
+	public ProjectileBullet Discharge()
 	{
+		/// <author>Lorenzo</author>
 		counter = 0.0f;
 		isShooting = true;
 		armAnimator.SetTrigger("shot");
 
+		/// <author>Elijah Shadbolt</author>
 		var bullet = Instantiate(bulletPrefab, spawnLocation.position, spawnLocation.rotation);
-		bullet.owner = this;
-		bullet.GetComponent<Rigidbody>().velocity = spawnLocation.forward * muzzleVelocity;
+		bullet.OnSpawned(this);
 
+		/// <author>Lorenzo</author>
 		isShooting = false;
+
+		return bullet;
 	}
 
 	private void Update()
 	{
+		/// <author>Elijah</author>
 		if (Input.GetButtonDown("Fire1"))
 		{
 			Discharge();
 		}
 
+ 		/// <author>Lorenzo</author>
 		counter += Time.deltaTime;
 		Debug.Log(counter);
 
