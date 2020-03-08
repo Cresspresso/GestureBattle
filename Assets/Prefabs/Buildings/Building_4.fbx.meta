@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5dff76f74b1aed544aa3379b91340442
+guid: 8ca4c580b05538b479b468e97a656fda
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: ShadeWindow
-    second: {fileID: 2100000, guid: c4cebd53f852fc3478965f29482ff4ab, type: 2}
+      name: Metal
+    second: {fileID: 2100000, guid: 5bed4f38060c28d49b87237cfbe1d90a, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

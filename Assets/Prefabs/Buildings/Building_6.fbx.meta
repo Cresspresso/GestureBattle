@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5dff76f74b1aed544aa3379b91340442
+guid: 0406e4c826437e649a69eba717ac17c7
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
@@ -8,7 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: ShadeWindow
-    second: {fileID: 2100000, guid: c4cebd53f852fc3478965f29482ff4ab, type: 2}
+    second: {fileID: 2100000, guid: a7439433e88fc364a8acd88889789487, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert12
+    second: {fileID: 2100000, guid: b32a1e3c311381041aa5defe281e1927, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
