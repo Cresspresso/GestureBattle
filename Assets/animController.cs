@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class animController : MonoBehaviour
 {
-    
+	public RuntimeAnimatorController[] controllers = new RuntimeAnimatorController[0];
+	private int i = 0;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	private void Update()
+	{
+		if (Input.GetButtonDown("Fire2"))
+		{
+			if (controllers.Length > 0)
+			{
+				++i;
+				while (i >= controllers.Length)
+				{
+					i -= controllers.Length;
+				}
+				GetComponent<Animator>().runtimeAnimatorController = controllers[i];
+			}
+		}
+	}
 }
