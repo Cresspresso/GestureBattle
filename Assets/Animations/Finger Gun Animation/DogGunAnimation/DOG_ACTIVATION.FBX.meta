@@ -1,14 +1,11 @@
 fileFormatVersion: 2
-guid: cb5140c45d6d6de4b865896e88319955
+guid: 3a0edba76bf75a4438000b0215f8ddc2
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: MALECivilian_Walking
-  - first:
-      74: -7613757597207281818
-    second: MA
+    second: DogActivation
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -38,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: MA
+      name: DogActivation
       takeName: Take 001
       internalID: 0
-      firstFrame: 58
-      lastFrame: 104
+      firstFrame: 0
+      lastFrame: 80
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

@@ -1,11 +1,14 @@
 fileFormatVersion: 2
-guid: 8474ed3af98bf68468d1651023e26296
+guid: 2343fcbec6c7f0f4bb6e88f310c59c99
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: MALECivilian_SittingIdle2
+    second: DogDeactivation
+  - first:
+      74: 1827226128182048838
+    second: DogDeactivation
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -35,11 +38,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: MALECivilian_SittingIdle2
+      name: DogDeactivation
       takeName: Take 001
       internalID: 0
-      firstFrame: 54
-      lastFrame: 104
+      firstFrame: 350
+      lastFrame: 390
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: f61d999b23f8f2b40a9c9c1a81a890c8
+guid: 5ace9fe40b2c7274e93a606c4b7616ad
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: MALECivilian_Idle2Looking
+    second: DogAttack
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: MALECivilian_Idle2Looking
+      name: DogAttack
       takeName: Take 001
       internalID: 0
-      firstFrame: 110
-      lastFrame: 245
+      firstFrame: 85
+      lastFrame: 185
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
