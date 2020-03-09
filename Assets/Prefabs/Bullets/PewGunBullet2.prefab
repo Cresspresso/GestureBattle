@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 8581008719970608051}
   - component: {fileID: 8581008719970608050}
   m_Layer: 11
-  m_Name: PewGunBullet
+  m_Name: PewGunBullet2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -179,6 +179,6 @@ MonoBehaviour:
   mass: 0.1
   useGravity: 0
   lifetime: 10
-  explosionPrefab: {fileID: 7037165850479811653, guid: ffa5fedd992f1c4428d9d82528406c38,
+  explosionPrefab: {fileID: 7037165850479811653, guid: 0d4b304d9692d9a48ab931ffbb6a6c1a,
     type: 3}
   trailToUnparent: {fileID: 8581008719667603785}

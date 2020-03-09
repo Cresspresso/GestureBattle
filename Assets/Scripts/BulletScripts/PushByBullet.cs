@@ -50,7 +50,7 @@ public class PushByBullet : MonoBehaviour
 	{
 		if (!doneOneFrame) { return; }
 
-		var impulse = collision.bullet.rb.mass * collision.bulletVelocity;
+		var impulse = collision.bulletVelocity * collision.bullet.mass * collision.bullet.impulseMultiplier;
 		impulse *= bulletImpulseModifier;
 		impulse += additionalImpulse * impulse.normalized;
 		if (useExplosionForce)

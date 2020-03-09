@@ -245,7 +245,11 @@ Material:
     - _UVDetailsMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMaskEmissive: {r: 1, g: 0, b: 0, a: 0}
+<<<<<<< HEAD:Assets/Materials/Arms_M.mat
 --- !u!114 &3497964786882877735
+=======
+--- !u!114 &3007189047714144795
+>>>>>>> master:Assets/Textures/PlayerArm/Arm_M.mat
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
