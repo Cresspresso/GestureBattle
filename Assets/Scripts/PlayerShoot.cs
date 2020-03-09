@@ -11,6 +11,9 @@ public class PlayerShoot : MonoBehaviour
 	public ProjectileBullet bulletPrefab;
 	public Transform spawnLocation;
 	public Animator armAnimator;
+	public Animator armDogAnimator;
+
+	public GameObject PlayerView;
 
 	private bool isShooting = false;
 	private float timeToIdle2 = 20.0f;
@@ -18,13 +21,23 @@ public class PlayerShoot : MonoBehaviour
 
 	public ProjectileBullet Discharge()
 	{
-		/// <author>Lorenzo</author>
-		counter = 0.0f;
-		isShooting = true;
-		armAnimator.SetTrigger("shot");
+		if (PlayerView.GetComponent<animController>().i == 0)
+		{
+			/// <author>Lorenzo</author>
+			counter = 0.0f;
+			isShooting = true;
+			armAnimator.SetTrigger("shot");
+		}
+		else if (PlayerView.GetComponent<animController>().i == 1)
+		{
+			/// <author>Lorenzo</author>
+			counter = 0.0f;
+			isShooting = true;
+			armDogAnimator.SetTrigger("shot");
+		}
 
-		/// <author>Elijah Shadbolt</author>
-		var bullet = Instantiate(bulletPrefab, spawnLocation.position, spawnLocation.rotation);
+			/// <author>Elijah Shadbolt</author>
+			var bullet = Instantiate(bulletPrefab, spawnLocation.position, spawnLocation.rotation);
 		bullet.OnSpawned(this);
 
 		/// <author>Lorenzo</author>
@@ -35,13 +48,24 @@ public class PlayerShoot : MonoBehaviour
 
 	private void Update()
 	{
- 		/// <author>Lorenzo</author>
+		/// <author>Lorenzo</author>
 		counter += Time.deltaTime;
 
-		if (counter >= timeToIdle2 && isShooting == false)
+		if (PlayerView.GetComponent<animController>().i == 0)
 		{
-			armAnimator.SetTrigger("toIdle2");
-			counter = 0.0f;
+			if (counter >= timeToIdle2 && isShooting == false)
+			{
+				armAnimator.SetTrigger("toIdle2");
+				counter = 0.0f;
+			}
+		}
+		else if (PlayerView.GetComponent<animController>().i == 1)
+		{
+			if (counter >= timeToIdle2 && isShooting == false)
+			{
+				armDogAnimator.SetTrigger("toIdle2");
+				counter = 0.0f;
+			}
 		}
 	}
 }
