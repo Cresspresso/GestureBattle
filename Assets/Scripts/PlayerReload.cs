@@ -15,7 +15,26 @@ public class PlayerReload : MonoBehaviour
 	private float remainingTime = 0.0f;
 
 	public float maxButtonEarlyDelay = 0.1f;
-	private float timeSinceLastButtonPress = 0.0f;
+	public float timeSinceLastButtonPress { get; set; } = 0.0f;
+
+	private void Start()
+	{
+		timeSinceLastButtonPress = maxButtonEarlyDelay;
+		remainingTime = 0.0f;
+		Debug.Log("start");
+	}
+
+	private void OnDisable()
+	{
+		timeSinceLastButtonPress = maxButtonEarlyDelay;
+	}
+
+	public void Prepare()
+	{
+		timeSinceLastButtonPress = maxButtonEarlyDelay;
+		enabled = false;
+		Debug.Log("disabled reload " + name);
+	}
 
 	private void Update()
 	{
@@ -29,12 +48,6 @@ public class PlayerReload : MonoBehaviour
 		if (timeSinceLastButtonPress < maxButtonEarlyDelay)
 		{
 			timeSinceLastButtonPress += Time.unscaledDeltaTime;
-		}
-
-		// check button press
-		if (Input.GetButtonDown("Fire1"))
-		{
-			timeSinceLastButtonPress = 0.0f;
 		}
 
 		// if reloaded and player has recently pressed fire button

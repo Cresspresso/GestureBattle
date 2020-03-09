@@ -140,8 +140,9 @@ GameObject:
   - component: {fileID: 8581008719970608052}
   - component: {fileID: 4970419654704552821}
   - component: {fileID: 8581008719970608050}
+  - component: {fileID: 2098848995095970559}
   m_Layer: 11
-  m_Name: PewGunBullet
+  m_Name: CrateinatorBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -203,10 +204,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c823b1358c26d5147aa647223f0e282a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  muzzleVelocity: 100
+  muzzleVelocity: 10000
   explosionPrefab: {fileID: 7037165850479811653, guid: ffa5fedd992f1c4428d9d82528406c38,
     type: 3}
   hitMask:
     serializedVersion: 2
     m_Bits: 4294967295
   lifetime: 10
+--- !u!114 &2098848995095970559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8581008719970608048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d3fae90dc506c74eb78bd87edf966c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}

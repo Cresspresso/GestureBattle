@@ -11,11 +11,8 @@ public class PlayerEntity : MonoBehaviour
 	private MoveCamera m_moveCamera;
 	public MoveCamera moveCamera { get { if (!m_moveCamera) { m_moveCamera = GetComponentInChildren<MoveCamera>(); } return m_moveCamera; } }
 
-	private PlayerShoot m_shoot;
-	public PlayerShoot shoot { get { if (!m_shoot) { m_shoot = GetComponentInChildren<PlayerShoot>(); } return m_shoot; } }
-
-	private PlayerReload m_reload;
-	public PlayerReload reload { get { if (!m_reload) { m_reload = GetComponentInChildren<PlayerReload>(); } return m_reload; } }
+	private PlayerWeaponSwitcher m_weaponSwitcher;
+	public PlayerWeaponSwitcher weaponSwitcher { get { if (!m_weaponSwitcher) { m_weaponSwitcher = GetComponentInChildren<PlayerWeaponSwitcher>(); } return m_weaponSwitcher; } }
 
 	private PlayerMovement m_movement;
 	public PlayerMovement movement { get { if (!m_movement) { m_movement = GetComponentInChildren<PlayerMovement>(); } return m_movement; } }

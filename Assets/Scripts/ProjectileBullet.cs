@@ -87,8 +87,8 @@ public class ProjectileBullet : MonoBehaviour
 				orderby hit.distance
 				let bullet = hit.collider.GetComponentInParent<ProjectileBullet>()
 				where bullet != this // or bullet is null
-				let player = hit.collider.GetComponentInParent<PlayerShoot>()
-				where noOwner || player != owner // or player is null
+				let player = hit.collider.GetComponentInParent<PlayerEntity>()
+				where noOwner || player != owner.player // or player is null
 				select hit;
 
 			if (validHits.Any())

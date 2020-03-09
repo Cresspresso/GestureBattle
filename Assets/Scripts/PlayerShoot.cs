@@ -8,6 +8,9 @@ using UnityEngine;
 /// <author>Elijah Shadbolt</author>
 public class PlayerShoot : MonoBehaviour
 {
+	private PlayerEntity m_player;
+	public PlayerEntity player { get { if (!m_player) { m_player = GetComponentInParent<PlayerEntity>(); } return m_player; } }
+
 	public ProjectileBullet bulletPrefab;
 	public Transform spawnLocation;
 	public Animator armAnimator;
