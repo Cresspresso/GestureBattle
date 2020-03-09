@@ -6,16 +6,23 @@ using UnityEngine;
 /// Responsible for a delay (reloading) before letting the player fire again.
 /// </summary>
 /// <author>Elijah Shadbolt</author>
-public class PlayerReload : MonoBehaviour
+public class PlayerWeapon : MonoBehaviour
 {
-	private PlayerShoot m_playerShoot;
-	public PlayerShoot playerShoot { get { if (!m_playerShoot) { m_playerShoot = GetComponent<PlayerShoot>(); } return m_playerShoot; } }
+	private PlayerShoot m_shoot;
+	public PlayerShoot shoot { get { if (!m_shoot) { m_shoot = GetComponent<PlayerShoot>(); } return m_shoot; } }
+
+	public Animator anim;
 
 	public float reloadTime = 0.5f;
-	private float remainingTime = 0.0f;
+	private float remainingTime;
 
 	public float maxButtonEarlyDelay = 0.1f;
 	private float timeSinceLastButtonPress = 0.0f;
+
+	private void Start()
+	{
+		remainingTime = reloadTime;
+	}
 
 	private void Update()
 	{
@@ -41,7 +48,8 @@ public class PlayerReload : MonoBehaviour
 		if (remainingTime <= 0.0f && timeSinceLastButtonPress < maxButtonEarlyDelay)
 		{
 			// shoot
-			playerShoot.Discharge();
+			shoot.Discharge();
+			if (anim) { anim.SetTrigger("shot"); }
 
 			// begin reloading
 			remainingTime = reloadTime;

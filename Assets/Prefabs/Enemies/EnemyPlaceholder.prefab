@@ -165,6 +165,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  dodgePlayerAimAngle: 15
+  dodgeMultiplier: 0.5
+  attackCloseRadius: 5
 --- !u!136 &1559937443650938858
 CapsuleCollider:
   m_ObjectHideFlags: 0
