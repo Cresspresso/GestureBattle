@@ -6,7 +6,7 @@ using UnityEngine;
 /// Manages a GameObject of temporary effects spawned by a bullet collision.
 /// </summary>
 /// <author>Elijah Shadbolt</author>
-public class Explosion : MonoBehaviour
+public class DelayedDestroy : MonoBehaviour
 {
 	public float duration = 1.0f;
 

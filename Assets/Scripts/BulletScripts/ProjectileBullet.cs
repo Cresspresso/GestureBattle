@@ -32,26 +32,25 @@ public class BulletCollision
 /// <author>Elijah Shadbolt</author>
 public class ProjectileBullet : MonoBehaviour
 {
-	private Rigidbody m_rb;
-	public Rigidbody rb {
-		get
-		{
-			if (!m_rb) { m_rb = GetComponent<Rigidbody>(); }
-			return m_rb;
-		}
-	}
-
 	public float muzzleVelocity = 100.0f;
 
 	public PlayerShoot owner { get; private set; }
 
-	public Explosion explosionPrefab;
 	public LayerMask hitMask = ~0;
 
-	private Vector3 lastPosition;
+	public Vector3 velocity { get; private set; }
+	public bool useGravity = false;
+
+	public float mass = 0.01f;
+	public float impulseMultiplier = 1.0f;
+
 	private bool hasExploded = false;
 
 	public float lifetime = 10;
+
+	public DelayedDestroy explosionPrefab;
+	public Transform trailToUnparent;
+
 
 
 	public void OnSpawned(PlayerShoot owner)
@@ -62,8 +61,7 @@ public class ProjectileBullet : MonoBehaviour
 	private void Start()
 	{
 		Destroy(gameObject, lifetime);
-		lastPosition = rb.position;
-		rb.velocity = transform.forward * muzzleVelocity;
+		velocity = transform.forward * muzzleVelocity;
 	}
 
 	/// <author>Elijah Shadbolt</author>
@@ -74,38 +72,56 @@ public class ProjectileBullet : MonoBehaviour
 			return;
 		}
 
-		var newPosition = rb.position;
-		try
+		// simulate gravity
+		if (useGravity)
 		{
-			var delta = newPosition - lastPosition;
-			Ray ray = new Ray(lastPosition, delta);
-			var hits = Physics.RaycastAll(ray, delta.magnitude, hitMask, QueryTriggerInteraction.Ignore);
-
-			bool noOwner = !owner;
-			var validHits =
-				from hit in hits
-				orderby hit.distance
-				let bullet = hit.collider.GetComponentInParent<ProjectileBullet>()
-				where bullet != this // or bullet is null
-				let player = hit.collider.GetComponentInParent<PlayerEntity>()
-				where noOwner || player != owner.player // or player is null
-				select hit;
-
-			if (validHits.Any())
-			{
-				RaycastHit hit = validHits.First();
-				WhenHit(new BulletCollision(
-					bullet: this,
-					other: hit.collider,
-					point: hit.point,
-					normal: hit.normal,
-					bulletVelocity: rb.velocity
-				));
-			}
+			velocity += Physics.gravity * Time.deltaTime;
 		}
-		finally
+
+		// get values
+		var delta = velocity * Time.deltaTime;
+		transform.rotation = Quaternion.LookRotation(delta, Vector3.up);
+
+		var previousPosition = transform.position;
+		var nextPosition = previousPosition + delta;
+
+		// raycast against all things
+		var epsilon = 0.0001f;
+		Ray ray = new Ray(previousPosition - delta.normalized * epsilon, delta);
+		var hits = Physics.RaycastAll(ray, delta.magnitude + 2 * epsilon, hitMask, QueryTriggerInteraction.Ignore);
+
+		// filter hits to get first valid hit
+		/// <author>Elijah Shadbolt</author>
+		bool noOwner = !owner;
+		var validHits =
+			from hit in hits
+			orderby hit.distance
+			let bullet = hit.collider.GetComponentInParent<ProjectileBullet>()
+			where bullet != this // or bullet is null
+			let player = hit.collider.GetComponentInParent<PlayerEntity>()
+			where noOwner || player != owner.player // or player is null
+			select hit;
+
+		if (validHits.Any())
 		{
-			lastPosition = newPosition;
+			RaycastHit hit = validHits.First();
+
+			// move bullet to hit point
+			transform.position = hit.point;
+
+			// when hit
+			WhenHit(new BulletCollision(
+				bullet: this,
+				other: hit.collider,
+				point: hit.point,
+				normal: hit.normal,
+				bulletVelocity: velocity
+			));
+		}
+		else
+		{
+			// move bullet along its trajectory
+			transform.position = nextPosition;
 		}
 	}
 
@@ -115,8 +131,18 @@ public class ProjectileBullet : MonoBehaviour
 		hasExploded = true;
 		try
 		{
-			Instantiate(explosionPrefab, collision.point, Quaternion.LookRotation(collision.normal));
+			// send a message to scripts attached to the collider that the bullet hit
 			collision.other.SendMessage("OnBulletCollision", collision, SendMessageOptions.DontRequireReceiver);
+
+			// instantiate bullet effects
+			if (explosionPrefab)
+			{
+				Instantiate(explosionPrefab, collision.point, Quaternion.LookRotation(collision.normal));
+			}
+			if (trailToUnparent)
+			{
+				trailToUnparent.SetParent(null);
+			}
 		}
 		finally
 		{

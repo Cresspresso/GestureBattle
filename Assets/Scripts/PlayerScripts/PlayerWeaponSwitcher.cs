@@ -54,6 +54,7 @@ public class PlayerWeaponSwitcher : MonoBehaviour
 		if (Input.GetButtonDown("Fire2"))
 		{
 			++equippedIndex; // with wrap
+			Debug.Log("Equipped: " + equippedIndex, this);
 		}
 	}
 }
