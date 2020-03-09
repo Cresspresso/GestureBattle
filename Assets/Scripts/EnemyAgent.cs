@@ -7,6 +7,11 @@ public class EnemyAgent : MonoBehaviour
 {
 	public Transform target;
 
+	private void Start()
+	{
+		if (!target) { target = FindObjectOfType<PlayerMovement>().transform; }
+	}
+
 	private void Update()
 	{
 		GetComponent<NavMeshAgent>().destination = target.position;

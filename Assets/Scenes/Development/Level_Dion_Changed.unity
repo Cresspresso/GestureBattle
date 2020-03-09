@@ -61740,6 +61740,75 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 44
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &5684076533909204002
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5684076533827577181, guid: e64650039aaecae45a7cd5fc0ec9337c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.855
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684076533827577181, guid: e64650039aaecae45a7cd5fc0ec9337c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 59.365
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684076533827577181, guid: e64650039aaecae45a7cd5fc0ec9337c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 43.227
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684076533827577181, guid: e64650039aaecae45a7cd5fc0ec9337c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684076533827577181, guid: e64650039aaecae45a7cd5fc0ec9337c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684076533827577181, guid: e64650039aaecae45a7cd5fc0ec9337c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684076533827577181, guid: e64650039aaecae45a7cd5fc0ec9337c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684076533827577181, guid: e64650039aaecae45a7cd5fc0ec9337c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 81
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684076533827577181, guid: e64650039aaecae45a7cd5fc0ec9337c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684076533827577181, guid: e64650039aaecae45a7cd5fc0ec9337c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684076533827577181, guid: e64650039aaecae45a7cd5fc0ec9337c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684076533827577182, guid: e64650039aaecae45a7cd5fc0ec9337c,
+        type: 3}
+      propertyPath: m_Name
+      value: Bang ParticleSystem
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e64650039aaecae45a7cd5fc0ec9337c, type: 3}
 --- !u!4 &5789983726467177909
 Transform:
   m_ObjectHideFlags: 0
