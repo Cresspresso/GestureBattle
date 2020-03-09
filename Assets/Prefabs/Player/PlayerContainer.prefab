@@ -10,7 +10,7 @@ Animator:
   m_GameObject: {fileID: 2059002726414344778}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: db46032d3a0ed164d9032404fda638c9, type: 2}
+  m_Controller: {fileID: 9100000, guid: 79298436d5024084a9140106ea3ba256, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -217,6 +217,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6414682085266953968}
   - component: {fileID: 5012792389705093686}
+  - component: {fileID: 654146469452004830}
   m_Layer: 13
   m_Name: PlayerContainer
   m_TagString: Untagged
@@ -250,6 +251,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 438accea84b640c449263842ac959823, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &654146469452004830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6414682085266953975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34aab2e9746ac484ebe6e5582548c42e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6414682085683294484
