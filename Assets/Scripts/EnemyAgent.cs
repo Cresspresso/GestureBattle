@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+/// <summary>
+/// Enemy that seeks the player.
+/// </summary>
+/// <author>Elijah Shadbolt</author>
 public class EnemyAgent : MonoBehaviour
 {
 	private NavMeshAgent m_agent;
@@ -22,9 +26,12 @@ public class EnemyAgent : MonoBehaviour
 	private void Update()
 	{
 		var targetPosition = target.moveCamera.transform.position;
+		var destination = targetPosition;
+
+		/// If player is aiming at me, dodge to the left or right.
+		/// <author>Elijah Shadbolt</author>
 		var targetForward = target.moveCamera.transform.forward;
 		var relativePosVec = transform.position - targetPosition;
-		var destination = targetPosition;
 		var dist = relativePosVec.magnitude;
 		if (dist > attackCloseRadius)
 		{
@@ -37,6 +44,7 @@ public class EnemyAgent : MonoBehaviour
 				destination = targetPosition + vec;
 			}
 		}
+
 		agent.destination = destination;
 	}
 }
