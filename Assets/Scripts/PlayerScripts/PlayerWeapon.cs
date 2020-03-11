@@ -13,47 +13,70 @@ public class PlayerWeapon : MonoBehaviour
 
 	public Animator anim;
 
-	public float reloadTime = 0.5f;
-	private float remainingTime;
+	//public float reloadTime = 0.5f;
+	//private float remainingTime;
 
-	public float maxButtonEarlyDelay = 0.1f;
-	private float timeSinceLastButtonPress = 0.0f;
+	//public float maxButtonEarlyDelay = 0.1f;
+	//private float timeSinceLastButtonPress = 0.0f;
 
-	private void Start()
+	private bool m_isEquipped;
+	public bool isEquipped {
+		get => m_isEquipped;
+		set
+		{
+			m_isEquipped = value;
+			OnEquippedChanged();
+		}
+	}
+
+	public void OnEquippedChanged()
 	{
-		remainingTime = reloadTime;
+		gameObject.SetActive(isEquipped);
+	}
+
+	//private void Start()
+	//{
+	//	remainingTime = reloadTime;
+	//}
+
+	public void Discharge()
+	{
+		//// begin reloading timer
+		//remainingTime = reloadTime;
+		//timeSinceLastButtonPress = maxButtonEarlyDelay;
+
+		// shoot
+		Debug.Log("weapon discharge");
+		shoot.Discharge();
+
+		if (anim) { anim.SetBool("Shoot", false); }
 	}
 
 	private void Update()
 	{
-		// update reloading timer
-		if (remainingTime > 0.0f)
-		{
-			remainingTime -= Time.deltaTime;
-		}
+		//// update reloading timer
+		//if (remainingTime > 0.0f)
+		//{
+		//	remainingTime -= Time.deltaTime;
+		//}
 
-		// update button press early delay
-		if (timeSinceLastButtonPress < maxButtonEarlyDelay)
-		{
-			timeSinceLastButtonPress += Time.unscaledDeltaTime;
-		}
+		//// update button press early delay
+		//if (timeSinceLastButtonPress < maxButtonEarlyDelay)
+		//{
+		//	timeSinceLastButtonPress += Time.unscaledDeltaTime;
+		//}
 
 		// check button press
-		if (Input.GetButtonDown("Fire1"))
-		{
-			timeSinceLastButtonPress = 0.0f;
-		}
+		anim.SetBool("Shoot", Input.GetButton("Fire1"));
+		//if (Input.GetButtonDown("Fire1"))
+		//{
+		//	//timeSinceLastButtonPress = 0.0f;
+		//}
 
-		// if reloaded and player has recently pressed fire button
-		if (remainingTime <= 0.0f && timeSinceLastButtonPress < maxButtonEarlyDelay)
-		{
-			// shoot
-			shoot.Discharge();
-			if (anim) { anim.SetTrigger("shot"); }
-
-			// begin reloading
-			remainingTime = reloadTime;
-			timeSinceLastButtonPress = maxButtonEarlyDelay;
-		}
+		//// if reloaded and player has recently pressed fire button
+		//if (remainingTime <= 0.0f && timeSinceLastButtonPress < maxButtonEarlyDelay)
+		//{
+		//	if (anim) { anim.SetBool("Shoot", true); }
+		//}
 	}
 }
