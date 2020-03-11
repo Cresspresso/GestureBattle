@@ -9,7 +9,6 @@ public class AnimWeaponShoot : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         hasShot = false;
-        Debug.Log("shoot enter");
     }
 
     public float shootAtNormalizedTime = 0.1f;
@@ -18,11 +17,8 @@ public class AnimWeaponShoot : StateMachineBehaviour
     {
         if (hasShot) { return; }
 
-        Debug.Log("shoot update");
-
         if (stateInfo.normalizedTime >= shootAtNormalizedTime)
         {
-            Debug.Log("shoot now");
             hasShot = true;
             animator.GetComponentInParent<PlayerWeapon>().Discharge();
         }

@@ -46,7 +46,6 @@ public class PlayerWeapon : MonoBehaviour
 		//timeSinceLastButtonPress = maxButtonEarlyDelay;
 
 		// shoot
-		Debug.Log("weapon discharge");
 		shoot.Discharge();
 
 		if (anim) { anim.SetBool("Shoot", false); }
