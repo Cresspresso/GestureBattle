@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <author>Elijah Shadbolt</author>
 public class EnemyMelee : MonoBehaviour
 {
 	//public float damage = 10;
@@ -31,5 +32,12 @@ public class EnemyMelee : MonoBehaviour
 			//	reload = reloadTime;
 			//}
 		}
+	}
+
+	/// <summary>Custom Event</summary>
+	/// <author>Elijah Shadbolt</author>
+	void OnKilled()
+	{
+		Destroy(this);
 	}
 }

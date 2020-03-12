@@ -12,6 +12,7 @@ public class Quitter : MonoBehaviour
 #endif
 	}
 
+#if !UNITY_EDITOR
 	private void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.Escape))
@@ -19,4 +20,5 @@ public class Quitter : MonoBehaviour
 			Quit();
 		}
 	}
+#endif
 }

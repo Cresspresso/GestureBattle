@@ -8,7 +8,6 @@ using UnityEngine;
 /// <author>Elijah Shadbolt</author>
 public class PlayerWeaponSwitcher : MonoBehaviour
 {
-	public Animator anim;
 	public PlayerWeapon[] weapons;
 
 	[SerializeField]
@@ -23,7 +22,6 @@ public class PlayerWeaponSwitcher : MonoBehaviour
 			{
 				m_equippedIndex = i;
 				OnEquippedActivateWeapon();
-				OnEquippedSetAnim();
 			}
 		}
 	}
@@ -37,18 +35,11 @@ public class PlayerWeaponSwitcher : MonoBehaviour
 		return i;
 	}
 
-	private void OnEquippedSetAnim()
-	{
-		anim.SetTrigger("Deactivate");
-		anim.SetInteger("WeaponIndex", equippedIndex);
-		anim.SetTrigger("SwitchWeapon");
-	}
-
 	private void OnEquippedActivateWeapon()
 	{
 		for (int i = 0; i < weapons.Length; i++)
 		{
-			weapons[i].gameObject.SetActive(i == equippedIndex);
+			weapons[i].isEquipped = i == equippedIndex;
 		}
 	}
 
