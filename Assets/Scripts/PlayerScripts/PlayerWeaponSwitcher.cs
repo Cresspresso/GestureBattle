@@ -21,7 +21,7 @@ public class PlayerWeaponSwitcher : MonoBehaviour
 			if (m_equippedIndex != i)
 			{
 				m_equippedIndex = i;
-				OnEquippedImpl();
+				OnEquippedActivateWeapon();
 			}
 		}
 	}
@@ -35,18 +35,18 @@ public class PlayerWeaponSwitcher : MonoBehaviour
 		return i;
 	}
 
-	private void OnEquippedImpl()
+	private void OnEquippedActivateWeapon()
 	{
 		for (int i = 0; i < weapons.Length; i++)
 		{
-			weapons[i].gameObject.SetActive(i == equippedIndex);
+			weapons[i].isEquipped = i == equippedIndex;
 		}
 	}
 
 	private void Start()
 	{
 		m_equippedIndex = WrapIndex(m_equippedIndex);
-		OnEquippedImpl();
+		OnEquippedActivateWeapon();
 	}
 
 	private void Update()

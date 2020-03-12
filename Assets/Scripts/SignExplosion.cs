@@ -5,11 +5,17 @@ using UnityEngine;
 public class SignExplosion : MonoBehaviour
 {
     public ParticleSystem ps;
-    public Material mat;
+    public Material[] explodedMaterials = new Material[0];
 
     void OnBulletCollision(BulletCollision collision)
     {
-        ps.Play();
-        //GetComponent<MeshRenderer>().materials[2] = mat;
+        if (ps) { ps.Play(); }
+
+        var mr = GetComponent<MeshRenderer>();
+        //var mats = mr.materials;
+        //mats[2] = mat;
+        mr.materials = explodedMaterials;
+
+        Destroy(this);
     }
 }
